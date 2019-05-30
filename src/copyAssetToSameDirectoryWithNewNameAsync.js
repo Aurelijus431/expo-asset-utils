@@ -1,5 +1,5 @@
 // @flow
-import { copyAsync } from 'expo-file-system';
+import { FileSystem } from 'expo-file-system';
 import uriAsync from './uriAsync';
 import replaceNameInUri from './replaceNameInUri';
 
@@ -9,7 +9,7 @@ async function copyAssetToSameDirectoryWithNewNameAsync(
 ): Promise<string> {
   const url = await uriAsync(fileReference);
   const nextUrl = replaceNameInUri(url, name);
-  await copyAsync({ from: url, to: nextUrl });
+  await FileSystem.copyAsync({ from: url, to: nextUrl });
   return nextUrl;
 }
 

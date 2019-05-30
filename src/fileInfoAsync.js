@@ -1,5 +1,5 @@
 // @flow
-import * as FileSystem from 'expo-file-system';
+import { FileSystem } from 'expo-file-system';
 
 import filenameFromUri from './filenameFromUri';
 
