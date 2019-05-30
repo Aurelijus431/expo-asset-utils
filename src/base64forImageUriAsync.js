@@ -1,5 +1,5 @@
 // @flow
-import { FileSystem } from 'expo-file-system';
+import { readAsStringAsync, EncodingTypes } from 'expo-file-system';
 import { getSizeAsync } from './ImageUtils';
 
 async function base64forImageUriAsync(uri: string): Promise<Data> {
