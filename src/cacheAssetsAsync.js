@@ -1,5 +1,6 @@
 // @flow
-import { Asset } from 'expo-asset';
+import { fromModule } from 'expo-asset';
+import { loadAsync } from 'expo-font';
 import { prefetch } from './ImageUtils';
 
 export type CacheOptions = {
@@ -16,7 +17,7 @@ export default function cacheAssetsAsync({
 }
 
 function raw(files: Array<number>): Array<Promise> {
-  return files.map(file => Asset.fromModule(file).downloadAsync());
+  return files.map(file => fromModule(file).downloadAsync());
 }
 
 function cacheImages(images: Array): Promise[] {
@@ -24,7 +25,7 @@ function cacheImages(images: Array): Promise[] {
     if (typeof image === 'string') {
       return prefetch(image);
     } else {
-      return Asset.fromModule(image).downloadAsync();
+      return fromModule(image).downloadAsync();
     }
   });
 }
